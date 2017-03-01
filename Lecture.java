@@ -15,7 +15,7 @@ public class Lecture {
 	
 	
 	public Lecture(){
-		File file = new File("données_modif.txt");
+		File file = new File("données.txt");
 		//Lecture du fichier txt et récupération des données
 		try { 
 			InputStream ipstmp = new FileInputStream(file); 
