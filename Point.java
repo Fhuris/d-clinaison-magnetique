@@ -1,5 +1,3 @@
-package declinaison;
-
 public class Points {
 	
 	private double lat,lon;
