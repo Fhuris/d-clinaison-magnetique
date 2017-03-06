@@ -1,4 +1,4 @@
-package données;
+package donnÃ©es;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,8 +17,8 @@ public class Lecture {
 	
 	
 	public Lecture(){
-		File file = new File("donnees_modif.txt");
-		//Lecture du fichier txt et récupération des données
+		File file = new File("donnees.txt");
+		//Lecture du fichier txt et rÃ©cupÃ©ration des donnÃ©es
 		try { 
 			InputStream ipstmp = new FileInputStream(file); 
 			InputStreamReader ipsrtmp = new InputStreamReader(ipstmp); 
@@ -40,7 +40,7 @@ public class Lecture {
 			BufferedReader br = new BufferedReader(ipsr); 
 			String ligne;
 			while ((ligne = br.readLine()) != null) { 
-				String[] r = ligne.trim().split(" "); //espace comme séparateur
+				String[] r = ligne.trim().split(" "); //espace comme sÃ©parateur
 				gh = r[0];
 				n = Integer.parseInt(r[1]); 
 				m = Integer.parseInt(r[2]);
@@ -56,14 +56,14 @@ public class Lecture {
 				}else if(gh.equals("h")){
 					h[n][m]=coef;
 				}else{
-					System.out.println("Fichier éronné");
+					System.out.println("Fichier Ã©ronnÃ©");
 					System.exit(0);
 				}
 			}
 			br.close(); 
 		}
 		catch (Exception e) { 
-			//afficher l'erreur et d'où elle vient
+			//afficher l'erreur et d'oÃ¹ elle vient
 			System.out.println(e.toString()); 
 			e.printStackTrace();
 		}
