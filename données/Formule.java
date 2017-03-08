@@ -8,6 +8,9 @@ public class Formule {
 	final double R=3.986005*Math.pow(10,14);//m^3/s²
 	final int r=6371000;//rayon de la Terre
 	double p;//legendre
+	double X;//coordonnées cartésiennes
+	double Y;
+	double Z;
 	Point z;
 	Lecture l;
 	
@@ -27,6 +30,12 @@ public class Formule {
 			S+=s*Math.pow(R/r,n+1);
 		}
 		V=R*S;
-		return V;
+		return V; //potentiel scalaire
+		
+		//Calculs des coordonnées cartésiennes
+		double X = (1/r)*diff(V, teta);
+		double Y = (1/(r*sin(teta)))*diff(V, 'phi');
+		double Z = diff(V, r);
 	}
 }
+// source :http://geomag.nrcan.gc.ca/mag_fld/magref-fr.php
