@@ -7,16 +7,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Lecture {
-	private String gh;
-	private int n=0;
-	private int m;
-	private double coef;
-	private double dif;
-	private double[][] g;
-	private double[][] h;
 	
 	
-	public Lecture(){
+	
+//	public Lecture(){}
+	
+	public static double[][][] coef(){
+		String gh;
+		int n=0;
+		int m;
+		double coef;
+		double dif;
+		double[][][] tab = null;
 		File file = new File("donnees.txt");
 		//Lecture du fichier txt et récupération des données
 		try { 
@@ -32,8 +34,7 @@ public class Lecture {
 			}
 			brtmp.close(); 
 
-			g=new double[n+1][n+1];
-			h=new double[n+1][n+1];
+			tab=new double[2][n+1][n+1];
 			
 			InputStream ips = new FileInputStream(file); 
 			InputStreamReader ipsr = new InputStreamReader(ips); 
@@ -47,14 +48,10 @@ public class Lecture {
 				coef = Double.parseDouble(r[3]);
 				dif = Double.parseDouble(r[4]);
 				coef += dif*2;
-				System.out.println(gh);
-				System.out.println(n);
-				System.out.println(m);
-				System.out.println(coef);
 				if(gh.equals("g")){
-					g[n][m]=coef;
+					tab[0][n][m]=coef;
 				}else if(gh.equals("h")){
-					h[n][m]=coef;
+					tab[1][n][m]=coef;
 				}else{
 					System.out.println("Fichier éronné");
 					System.exit(0);
@@ -67,6 +64,7 @@ public class Lecture {
 			System.out.println(e.toString()); 
 			e.printStackTrace();
 		}
+		return tab;
 		/*
 		for(int i=0;i<g.length;i++){
 			for(int j=0;j<g.length;j++)
@@ -81,19 +79,20 @@ public class Lecture {
 		System.out.println();
 		}
 		*/
+		
 	}
 	
-	public double getGv(int n, int m) {
-		return g[n][m];
+	public static double getGv(int n, int m) {
+		return coef()[0][n][m];
 	}	
-	public double getHv(int n, int m) {
-		return h[n][m];
+	public static double getHv(int n, int m) {
+		return coef()[1][n][m];
 	}
 	
-	public double[][] getG(){
-		return g;
+	public static double[][] getG(){
+		return coef()[0];
 	}
-	public double[][] getH(){
-		return h;
+	public static double[][] getH(){
+		return coef()[1];
 	}
 }
