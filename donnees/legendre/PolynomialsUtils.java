@@ -1,4 +1,4 @@
-package données.legendre;
+package donnees.legendre;
 
 import java.util.ArrayList;
 import java.util.List;

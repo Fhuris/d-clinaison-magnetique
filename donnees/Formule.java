@@ -1,4 +1,4 @@
-package données;
+package donnees;
 
 import org.apache.commons.math3.analysis.polynomials.PolynomialsUtils;
 
@@ -34,7 +34,7 @@ public class Formule {
 		
 		//Calculs des coordonnées cartésiennes
 		double X = (1/r)*diff(V, teta);
-		double Y = (1/(r*sin(teta)))*diff(V, 'z.getLon()*Math.PI/2');
+		double Y = (1/(r*Math.sin(teta)))*diff(V, z.getLon()*Math.PI/2);
 		double Z = diff(V, r);
 	}
 }

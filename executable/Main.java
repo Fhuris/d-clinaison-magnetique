@@ -1,6 +1,6 @@
 package executable;
 
-import données.Formule;
+import donnees.Formule;
 import objets.Point;
 
 public class Main {
