@@ -1,13 +1,15 @@
-package objets;
+package declinaison;
+
 
 public class Point {
 	
-	private double lat,lon;
+	private double lat,lon,alt;
 	
-	
-	  public Point (double lon , double lat) {
+		
+	  public Point (double lon , double lat, double alt) {
 	    this.lat =lat;
 	    this.lon =lon;
+	    this.alt = alt;
 	   	  }
 	  
 	  public double getLat() {
@@ -17,9 +19,11 @@ public class Point {
 		  public double getLon() {
 		    return lon*Math.PI/180;
 		  }
-
+		  public double getAlt() {
+			    return alt;
+		  }
 		  public String toString() {
-		    return "(" + lat + ";" + lon + ")";
+		    return "(" + lat + ";" + lon + ";" + alt + ")";
 		  }
 
 
