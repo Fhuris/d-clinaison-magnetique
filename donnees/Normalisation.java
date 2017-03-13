@@ -1,4 +1,4 @@
-package donnees.legendre;
+package donnees;
 
 public class Normalisation {
 	
