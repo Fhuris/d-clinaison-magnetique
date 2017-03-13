@@ -65,21 +65,6 @@ public class Lecture {
 			e.printStackTrace();
 		}
 		return tab;
-		/*
-		for(int i=0;i<g.length;i++){
-			for(int j=0;j<g.length;j++)
-				System.out.print(g[i][j]+" ");
-		System.out.println();
-		}
-		System.out.println();
-
-		for(int i=0;i<h.length;i++){
-			for(int j=0;j<h.length;j++)
-				System.out.print(h[i][j]+" ");
-		System.out.println();
-		}
-		*/
-		
 	}
 	
 	public static double getGv(int n, int m) {
