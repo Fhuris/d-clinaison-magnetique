@@ -9,9 +9,7 @@ import java.io.InputStreamReader;
 public class Lecture {
 	
 	
-	
-//	public Lecture(){}
-	
+		
 	public static double[][][] coef(){
 		String gh;
 		int n=0;
