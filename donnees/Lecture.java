@@ -95,4 +95,20 @@ public class Lecture {
 	public static double[][] getH(){
 		return coef()[1];
 	}
+	
+	public String toString(){
+		String s="";
+		for(int i=0;i<coef()[0].length;i++){
+			for(int j=0;j<coef()[0].length;j++)
+				s+=coef()[0][i][j]+" ";
+		s+="\n";
+		}
+		s+="\n";
+			for(int i=0;i<coef()[1].length;i++){
+			for(int j=0;j<coef()[1].length;j++)
+				s+=coef()[1][i][j]+" ";
+			s+="\n";
+		}
+		return s;
+	}
 }
