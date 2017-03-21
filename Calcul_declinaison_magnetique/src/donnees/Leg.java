@@ -16,8 +16,8 @@ public class Leg {
 	}
 
 
-	private static double factorial(double i) {
-		int fact = 1; 
+	private static double factorial(int i) {
+		double fact = 1; 
 		for (int n = 1;n<=i; n++) {
 			fact *= n;
 		}
