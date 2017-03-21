@@ -16,7 +16,10 @@ public class Rotation {
 		String filename="NE1_HR_LC_SR_W.tif";
 		String newfilename=filename.substring(0,filename.length()-3);
 		double[] c= Coordonnees.coord(newfilename+"tfw");
-		BufferedImage img=ImageIO.read(new File("test.jpg"));
+		
+		filename="test.jpg"
+		
+		BufferedImage img=ImageIO.read(new File(filename));
 		System.out.println(c[0]+" "+c[1]+" "+c[2]+" "+c[3]+" ");
 		System.out.println(img);
 		int h = img.getHeight();
