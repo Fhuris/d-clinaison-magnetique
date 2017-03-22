@@ -1,10 +1,14 @@
 package image;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.renderable.ParameterBlock;
 import java.io.File;
 import java.io.IOException;
+import javax.media.jai.JAI;
+import javax.media.jai.RenderedOp;
 
-import javax.imageio.ImageIO;
+import com.sun.media.jai.codec.FileSeekableStream;
+import com.sun.media.jai.codec.TIFFDecodeParam;
 
 import donnees.Formule;
 import javaxt.io.Image;
@@ -12,16 +16,16 @@ import objets.Point;
 
 public class Rotation {
 
-	public static void main(String[] args) throws IOException {
-		String filename="NE1_HR_LC_SR_W.tif";
+	public static void exe(String filename) throws IOException {
 		String newfilename=filename.substring(0,filename.length()-3);
 		double[] c= Coordonnees.coord(newfilename+"tfw");
-		
-		filename="test.jpg"
-		
-		BufferedImage img=ImageIO.read(new File(filename));
-		System.out.println(c[0]+" "+c[1]+" "+c[2]+" "+c[3]+" ");
-		System.out.println(img);
+		FileSeekableStream stream = new FileSeekableStream(filename);
+		TIFFDecodeParam decodeParam = new TIFFDecodeParam();
+		decodeParam.setDecodePaletteAsShorts(true);
+		ParameterBlock params = new ParameterBlock();
+		params.add(stream);
+		RenderedOp image1 = JAI.create("tiff", params);
+		BufferedImage img = image1.getAsBufferedImage();
 		int h = img.getHeight();
 		int w = img.getWidth();
 		double X=c[2]+c[0]*w/2;
@@ -29,15 +33,15 @@ public class Rotation {
 		
 		Point p=new Point(X,Y,0);
 		
-		Image img2 = new Image(filename);
-		img2.rotate(Formule.calcul(p));
+		Image img2 = new Image(img);
+		img2.rotate(-1*Formule.calcul(p));
 		
 		File fichier=new File(filename);
 		String chemin = new String();
 		chemin = fichier.getAbsolutePath();
 		String[] r = chemin.trim().split("\\.");	
 		
-		img2.saveAs(r[0]+"_rot."+r[1]);
+		img2.saveAs(r[0]+"_rot."+"jpg"/*r[1]*/);
 	}
 
 }
