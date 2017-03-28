@@ -22,8 +22,8 @@ public class Calcul {
 		
 //		Point Paris=new Point(48.85341,2.34880,85.806); // D=0.501
 //		System.out.println(Formule.calcul(Paris));
-//		GeomagneticField n=new GeomagneticField(48.85341,2.34880,42,1.482*Math.pow(10,12));
-//		System.out.println(n.getDeclination());
+/*		GeomagneticField n=new GeomagneticField(48.85341,2.34880,42,1.482*Math.pow(10,12));
+		System.out.println(n.getDeclination());*/
 	}
 
 }
